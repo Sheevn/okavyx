@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "indentation": {
+      "level": "error",
+      "value": 2
+    },
+    "prettier": {
+      "level": "error"
+    }
+  }
+} 

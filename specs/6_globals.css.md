@@ -1,3 +1,6 @@
+# `src/app/globals.css`
+
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -72,3 +75,4 @@
     @apply bg-background text-foreground;
   }
 }
+``` 

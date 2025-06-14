@@ -1,3 +1,6 @@
+# `package.json`
+
+```json
 {
   "name": "site",
   "version": "0.1.0",
@@ -33,3 +36,4 @@
     "typescript": "^5"
   }
 }
+``` 
