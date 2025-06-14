@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MountainIcon, MenuIcon } from "@/components/icons";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Header() {
   return (
@@ -9,42 +10,45 @@ export default function Header() {
           <MountainIcon className="h-6 w-6" />
           <span className="text-lg font-semibold">Okavyx AI</span>
         </Link>
-        <nav className="hidden space-x-4 md:flex">
-          <Link
-            href="/about"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            About
-          </Link>
-          <Link
-            href="/services"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Services
-          </Link>
-          <Link
-            href="/case-studies"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Case Studies
-          </Link>
-          <Link
-            href="/blog"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Blog
-          </Link>
-          <Link
-            href="/contact"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Contact
-          </Link>
-        </nav>
-        <button className="md:hidden">
-          <MenuIcon className="h-6 w-6" />
-          <span className="sr-only">Toggle navigation menu</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <nav className="hidden space-x-4 md:flex">
+            <Link
+              href="/about"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              About
+            </Link>
+            <Link
+              href="/services"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              Services
+            </Link>
+            <Link
+              href="/case-studies"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              Case Studies
+            </Link>
+            <Link
+              href="/blog"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              Contact
+            </Link>
+          </nav>
+          <ThemeToggle />
+          <button className="md:hidden">
+            <MenuIcon className="h-6 w-6" />
+            <span className="sr-only">Toggle navigation menu</span>
+          </button>
+        </div>
       </div>
     </header>
   );
