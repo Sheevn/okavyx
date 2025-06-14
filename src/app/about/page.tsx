@@ -17,8 +17,8 @@ export default function AboutPage() {
           </div>
           <div>
             <Image
-              src="/placeholder.svg"
-              alt="Okavyx AI Team"
+              src="/about-strategy.jpg"
+              alt="Abstract visualization of AI strategy"
               width={600}
               height={400}
               className="rounded-lg"
