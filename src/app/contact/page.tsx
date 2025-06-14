@@ -1,10 +1,10 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { submitAction } from "@/actions/contact";
 
 export default function ContactPage() {
-  const [state, formAction] = useFormState(submitAction, null);
+  const [state, formAction] = useActionState(submitAction, null);
 
   return (
     <div className="bg-background text-foreground">
