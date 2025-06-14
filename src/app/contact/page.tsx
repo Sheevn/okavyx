@@ -1,12 +1,7 @@
 "use client";
 
 import { useFormState } from "react-dom";
-
-async function submitAction(prevState: any, formData: FormData) {
-  "use server";
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  return "Message sent successfully!";
-}
+import { submitAction } from "@/actions/contact";
 
 export default function ContactPage() {
   const [state, formAction] = useFormState(submitAction, null);
