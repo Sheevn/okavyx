@@ -16,9 +16,6 @@ export default function Footer() {
             About Us
           </Link>
           <Link href="#">
-            Our Team
-          </Link>
-          <Link href="#">
             Careers
           </Link>
           <Link href="/contact">
