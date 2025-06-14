@@ -2,30 +2,16 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import {
-  type Container,
-  type ISourceOptions,
-} from "@tsparticles/engine";
-// import { loadAll } from "@/tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import { type Container, type ISourceOptions } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
 import Link from "next/link";
 
-
 export default function Hero() {
-    const [init, setInit] = useState(false);
+  const [init, setInit] = useState(false);
 
-  // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      //await loadAll(engine);
-      //await loadFull(engine);
       await loadSlim(engine);
-      //await loadBasic(engine);
     }).then(() => {
       setInit(true);
     });
@@ -35,7 +21,7 @@ export default function Hero() {
     console.log(container);
   };
 
-    const options: ISourceOptions = useMemo(
+  const options: ISourceOptions = useMemo(
     () => ({
       background: {
         color: {
@@ -66,10 +52,10 @@ export default function Hero() {
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: "#D4AF37", // Use brand gold color
         },
         links: {
-          color: "#ffffff",
+          color: "#D4AF37", // Use brand gold color
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -82,7 +68,7 @@ export default function Hero() {
             default: "bounce",
           },
           random: false,
-          speed: 6,
+          speed: 2, // Slowed down slightly for a more elegant feel
           straight: false,
         },
         number: {
@@ -98,16 +84,20 @@ export default function Hero() {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 1, max: 3 },
         },
       },
       detectRetina: true,
     }),
-    [],
+    [] // No longer dependent on theme
   );
-  
+
   return (
-    <section className="relative h-screen w-full flex items-center justify-center text-center text-white bg-[#0d47a1]">
+    <section
+      className="relative h-screen w-full flex items-center justify-center text-center bg-cover bg-center"
+      style={{ backgroundImage: "url('/hero-background.png')" }}
+    >
+      <div className="absolute inset-0 bg-black/60" />
       {init && (
         <Particles
           id="tsparticles"
@@ -116,14 +106,16 @@ export default function Hero() {
           className="absolute inset-0 z-0"
         />
       )}
-      <div className="relative z-10 p-4">
+      <div className="relative z-10 p-4 text-white">
         <h1 className="text-5xl md:text-7xl font-bold">
           Unleash the Future with Okavyx AI
         </h1>
-        <p className="mt-4 text-lg md:text-xl">Bespoke AI strategies and solutions to elevate your business.</p>
+        <p className="mt-4 text-lg md:text-xl">
+          Bespoke AI strategies and solutions to elevate your business.
+        </p>
         <Link
           href="/contact"
-          className="mt-8 inline-block bg-white text-blue-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors"
+          className="mt-8 inline-block bg-primary text-primary-foreground font-semibold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors"
         >
           Get in Touch
         </Link>
