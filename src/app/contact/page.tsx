@@ -1,18 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useFormState } from "react-dom";
+
+async function submitAction(prevState: any, formData: FormData) {
+  "use server";
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  return "Message sent successfully!";
+}
 
 export default function ContactPage() {
-  const [status, setStatus] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("Submitting...");
-    // This is where you would handle form submission, e.g., send to an API endpoint.
-    // For this example, we'll just simulate a delay.
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setStatus("Message sent successfully!");
-  };
+  const [state, formAction] = useFormState(submitAction, null);
 
   return (
     <div className="bg-background text-foreground">
@@ -27,7 +24,7 @@ export default function ContactPage() {
         </div>
 
         <div className="max-w-xl mx-auto">
-          <form onSubmit={handleSubmit} className="grid gap-4">
+          <form action={formAction} className="grid gap-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium">
                 Name
@@ -71,8 +68,8 @@ export default function ContactPage() {
               Send Message
             </button>
           </form>
-          {status && (
-            <p className="mt-4 text-center text-muted-foreground">{status}</p>
+          {state && (
+            <p className="mt-4 text-center text-muted-foreground">{state}</p>
           )}
         </div>
       </main>
