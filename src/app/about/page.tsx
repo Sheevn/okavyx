@@ -28,27 +28,6 @@ export default function AboutPage() {
 
         <section className="py-12 md:py-24">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Our Team
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="text-center">
-                <Image
-                  src="/placeholder.svg"
-                  alt={`Team Member ${i + 1}`}
-                  width={150}
-                  height={150}
-                  className="rounded-full mx-auto mb-4"
-                />
-                <h3 className="font-semibold text-lg">Team Member</h3>
-                <p className="text-muted-foreground">Role</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="py-12 md:py-24">
-          <h2 className="text-3xl font-bold text-center mb-12">
             Our Journey
           </h2>
           <div className="relative">
