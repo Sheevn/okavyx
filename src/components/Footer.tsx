@@ -12,37 +12,37 @@ export default function Footer() {
         </div>
         <div className="grid gap-1">
           <h3 className="font-semibold">Company</h3>
-          <Link href="/about" prefetch={false}>
+          <Link href="/about">
             About Us
           </Link>
-          <Link href="#" prefetch={false}>
+          <Link href="#">
             Our Team
           </Link>
-          <Link href="#" prefetch={false}>
+          <Link href="#">
             Careers
           </Link>
-          <Link href="/contact" prefetch={false}>
+          <Link href="/contact">
             Contact Us
           </Link>
         </div>
         <div className="grid gap-1">
           <h3 className="font-semibold">Social</h3>
-          <Link href="#" prefetch={false}>
+          <Link href="#">
             Twitter
           </Link>
-          <Link href="#" prefetch={false}>
+          <Link href="#">
             LinkedIn
           </Link>
-          <Link href="#" prefetch={false}>
+          <Link href="#">
             GitHub
           </Link>
         </div>
         <div className="grid gap-1">
           <h3 className="font-semibold">Legal</h3>
-          <Link href="#" prefetch={false}>
+          <Link href="#">
             Privacy Policy
           </Link>
-          <Link href="#" prefetch={false}>
+          <Link href="#">
             Terms of Service
           </Link>
         </div>
@@ -50,10 +50,10 @@ export default function Footer() {
       <div className="container mx-auto mt-8 flex items-center justify-between text-xs text-muted-foreground">
         <p>&copy; 2024 Okavyx AI. All rights reserved.</p>
         <div className="flex gap-4">
-          <Link href="#" className="hover:underline" prefetch={false}>
+          <Link href="#" className="hover:underline">
             Privacy
           </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
+          <Link href="#" className="hover:underline">
             Terms
           </Link>
         </div>

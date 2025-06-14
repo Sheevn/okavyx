@@ -126,7 +126,6 @@ export default function Hero() {
         <Link
           href="/contact"
           className="mt-8 inline-block bg-white text-blue-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors"
-          prefetch={false}
         >
           Get in Touch
         </Link>

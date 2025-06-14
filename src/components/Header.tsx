@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2" prefetch={false}>
+        <Link href="/" className="flex items-center gap-2">
           <MountainIcon className="h-6 w-6" />
           <span className="text-lg font-semibold">Okavyx AI</span>
         </Link>
@@ -13,35 +13,30 @@ export default function Header() {
           <Link
             href="/about"
             className="text-sm font-medium hover:underline underline-offset-4"
-            prefetch={false}
           >
             About
           </Link>
           <Link
             href="/services"
             className="text-sm font-medium hover:underline underline-offset-4"
-            prefetch={false}
           >
             Services
           </Link>
           <Link
             href="/case-studies"
             className="text-sm font-medium hover:underline underline-offset-4"
-            prefetch={false}
           >
             Case Studies
           </Link>
           <Link
             href="/blog"
             className="text-sm font-medium hover:underline underline-offset-4"
-            prefetch={false}
           >
             Blog
           </Link>
           <Link
             href="/contact"
             className="text-sm font-medium hover:underline underline-offset-4"
-            prefetch={false}
           >
             Contact
           </Link>

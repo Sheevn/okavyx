@@ -35,7 +35,6 @@ export default function CaseStudiesPage() {
               <Link
                 href="#"
                 className="text-primary hover:underline"
-                prefetch={false}
               >
                 Read More
               </Link>
@@ -60,7 +59,6 @@ export default function CaseStudiesPage() {
               <Link
                 href="#"
                 className="text-primary hover:underline"
-                prefetch={false}
               >
                 Read More
               </Link>

@@ -38,7 +38,6 @@ export default function BlogPage() {
                 <Link
                   href={`/blog/${post.slug}`}
                   className="hover:underline"
-                  prefetch={false}
                 >
                   {post.title}
                 </Link>
