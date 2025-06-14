@@ -120,9 +120,7 @@ export default function Hero() {
         <h1 className="text-5xl md:text-7xl font-bold">
           Unleash the Future with Okavyx AI
         </h1>
-        <p className="mt-4 text-lg md:text-xl">
-          Revolutionary AI solutions for healthcare, finance, and creative arts.
-        </p>
+        <p className="mt-4 text-lg md:text-xl">Bespoke AI strategies and solutions to elevate your business.</p>
         <Link
           href="/contact"
           className="mt-8 inline-block bg-white text-blue-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors"

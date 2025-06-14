@@ -8,26 +8,26 @@ export default function Testimonials() {
         <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="bg-card p-6 rounded-lg shadow-md">
             <p className="text-muted-foreground">
-              “Okavyx AI has revolutionized our patient care with their predictive analytics. We can now identify at-risk patients with incredible accuracy.”
+              "Working with Okavyx AI gave us the strategic clarity we were missing. Their insights are now a core part of our decision-making process."
             </p>
             <div className="mt-4 font-semibold">
-              Dr. Jane Doe, Healthcare Innovators
+              Alex Chen, CEO of a Tech Startup
             </div>
           </div>
           <div className="bg-card p-6 rounded-lg shadow-md">
             <p className="text-muted-foreground">
-              “The generative AI from Okavyx has unlocked new creative possibilities for our artists. The results are simply breathtaking.”
+              "The custom automation solution built by Okavyx saved us hundreds of hours per month. It's been a complete game-changer for our operational efficiency."
             </p>
             <div className="mt-4 font-semibold">
-              John Smith, Creative Studios
+              Samantha Lee, Director of Operations
             </div>
           </div>
           <div className="bg-card p-6 rounded-lg shadow-md">
             <p className="text-muted-foreground">
-              “Their financial modeling AI has given us a significant edge in a competitive market. It's an indispensable tool for our firm.”
+              "The team at Okavyx doesn't just deliver code, they deliver a competitive advantage. Their expertise is unmatched."
             </p>
             <div className="mt-4 font-semibold">
-              Emily White, Finance Corp
+              Michael B., Head of Innovation
             </div>
           </div>
         </div>
