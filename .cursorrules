@@ -1,11 +1,22 @@
-{
-  "rules": {
-    "indentation": {
-      "level": "error",
-      "value": 2
-    },
-    "prettier": {
-      "level": "error"
-    }
-  }
-} 
+# .cursorrules - Rules for AI Pair Programming
+
+# This file guides the AI's behavior to ensure consistency and adherence to the project's architecture.
+
+# 1. Core Principles
+- The single source of truth is the latest GitHub commit URL provided by the user.
+- Adhere strictly to the step-by-step plan in `PROJECT.md`.
+- All code must be compliant with the rulings in `spec.md`.
+- Provide one numbered prompt at a time. Do not combine steps.
+- After providing a prompt, also provide the exact `git commit` command to be used upon success.
+
+# 2. File and Directory Structure
+- All new pages must be created inside the `src/app` directory, following Next.js App Router conventions.
+- All new reusable components must be created inside the `src/components` directory.
+- Use the `@/*` path alias for all imports of local modules from the `src` directory (e.g., `import Foo from '@/components/Foo'`).
+
+# 3. Code Style and Conventions
+- All code must be written in TypeScript.
+- Use Tailwind CSS for all styling. Do not write custom CSS files outside of `globals.css`.
+- Follow the existing code style for formatting and naming conventions.
+- Remove the `prefetch={false}` prop from all Next.js `<Link>` components, as per the architectural ruling.
+- Use React Server Actions for form submissions and other server mutations, as per the architectural ruling.

@@ -1,3 +1,11 @@
+Of course. I have analyzed the technical specification and am prepared to present my findings and our initial project files.
+
+Here is the complete content for `spec.md`, `PROJECT.md`, and `.cursorrules`.
+
+***
+
+### `spec.md`
+
 # Okavyx AI Website Specification
 
 This document provides a detailed specification for the Okavyx AI website. It includes all configuration files, source code, and assets required to rebuild the project exactly as it was created.
@@ -6,9 +14,26 @@ This document provides a detailed specification for the Okavyx AI website. It in
 
 A modern, futuristic, and fully functional multi-page website for Okavyx AI, a fictional company specializing in revolutionary AI solutions. The site is built as a full-stack web application using Next.js, React, TypeScript, and Tailwind CSS.
 
-## 2. Setup and Deployment
+## 2. Architectural Rulings & Version Constraints
 
-### 2.1. Local Development
+This section documents the results of the initial dependency analysis and establishes key architectural decisions for the project.
+
+*   **Core Technology Versions**:
+    *   **Next.js**: `15.3.3` (Release Candidate). We will be using a pre-release version of Next.js. This allows us to leverage the latest features but requires careful testing, as APIs may change before the final stable release.
+    *   **React**: `19.0.0`. The project will be built on React 19, which is a major new version. We will embrace the new patterns it introduces.
+    *   **TypeScript**: `^5.0.0`.
+    *   **Tailwind CSS**: `^3.4.1`.
+
+*   **Architectural Rulings**:
+    1.  **Embrace React 19 Actions**: For all server mutations, such as the contact form submission, we will use React Actions. This avoids client-side state management (`useState`) for form status, simplifies the code, and aligns with the latest React/Next.js patterns for progressive enhancement.
+    2.  **Dependency Consolidation (`tsParticles`)**: The initial spec listed two particle animation libraries (`@tsparticles/react` and `react-tsparticles`). The code exclusively uses `@tsparticles/react`. To prevent conflicts and reduce bundle size, the `react-tsparticles` dependency will be removed.
+    3.  **Leverage Next.js Link Prefetching**: The spec frequently uses `prefetch={false}` on `<Link>` components. The Next.js App Router has an optimized prefetching strategy (links are prefetched as they enter the viewport). We will remove `prefetch={false}` to rely on this superior default behavior, improving navigation performance.
+    4.  **Icon Component Abstraction**: SVG icons defined within components (e.g., `MountainIcon`, `MenuIcon` in `Header.tsx`) will be abstracted into a central `src/components/icons.tsx` file. This promotes reusability, cleans up component code, and makes the icon set easier to manage.
+    5.  **Strict App Router Structure**: All pages and layouts will reside in the `src/app` directory. All reusable components will be placed in `src/components`. Path aliases (`@/*`) will be used for all internal imports.
+
+## 3. Setup and Deployment
+
+### 3.1. Local Development
 
 1.  **Install dependencies:**
     ```bash
@@ -22,15 +47,15 @@ A modern, futuristic, and fully functional multi-page website for Okavyx AI, a f
 
 3.  Open [http://localhost:3000](http://localhost:3000) in a browser.
 
-### 2.2. Deployment
+### 3.2. Deployment
 
 The application is optimized for deployment on the [Vercel Platform](https://vercel.com/new).
 
 ---
 
-## 3. Project Configuration
+## 4. Project Configuration
 
-### 3.1. `package.json`
+### 4.1. `package.json`
 
 This file lists all project dependencies, dev dependencies, and scripts.
 
@@ -72,7 +97,7 @@ This file lists all project dependencies, dev dependencies, and scripts.
 }
 ```
 
-### 3.2. `tailwind.config.ts`
+### 4.2. `tailwind.config.ts`
 
 Tailwind CSS configuration, including the design system (colors, border radius, animations) and content paths.
 
@@ -157,7 +182,7 @@ const config: Config = {
 export default config;
 ```
 
-### 3.3. `postcss.config.mjs`
+### 4.3. `postcss.config.mjs`
 
 PostCSS configuration to process Tailwind CSS and Autoprefixer.
 
@@ -170,7 +195,7 @@ export default {
 };
 ```
 
-### 3.4. `next.config.ts`
+### 4.4. `next.config.ts`
 
 The configuration for Next.js. No custom configuration was added.
 
@@ -184,7 +209,7 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 ```
 
-### 3.5. `tsconfig.json`
+### 4.5. `tsconfig.json`
 
 TypeScript compiler configuration.
 
@@ -220,9 +245,9 @@ TypeScript compiler configuration.
 
 ---
 
-## 4. Global Styles & Layout
+## 5. Global Styles & Layout
 
-### 4.1. `src/app/globals.css`
+### 5.1. `src/app/globals.css`
 
 This file contains the global stylesheets, including Tailwind directives and the definition of all CSS variables for the color palette and design system.
 
@@ -303,7 +328,7 @@ This file contains the global stylesheets, including Tailwind directives and the
 }
 ```
 
-### 4.2. `src/app/layout.tsx`
+### 5.2. `src/app/layout.tsx`
 
 The root layout for the application, which includes the `<html>` and `<body>` tags, global font settings, and renders the `Header` and `Footer` on all pages.
 
@@ -340,11 +365,11 @@ export default function RootLayout({
 
 ---
 
-## 5. Components
+## 6. Components
 
 This section details all reusable React components.
 
-### 5.1. `src/components/Header.tsx`
+### 6.1. `src/components/Header.tsx`
 
 A fixed navigation header with the company logo, navigation links, and a mobile menu button.
 
@@ -446,7 +471,7 @@ function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 ```
 
-### 5.2. `src/components/Footer.tsx`
+### 6.2. `src/components/Footer.tsx`
 
 The site footer, containing navigation links, social media links, legal links, and a copyright notice.
 
@@ -516,7 +541,7 @@ export default function Footer() {
 }
 ```
 
-### 5.3. `src/components/Hero.tsx`
+### 6.3. `src/components/Hero.tsx`
 
 A full-screen hero section for the homepage. It features a particle animation background using `react-tsparticles`, a headline, a subheadline, and a call-to-action button.
 
@@ -659,7 +684,7 @@ export default function Hero() {
 }
 ```
 
-### 5.4. `src/components/Features.tsx`
+### 6.4. `src/components/Features.tsx`
 
 A section to highlight the key features of Okavyx AI, laid out in a three-column grid with icons from `lucide-react`.
 
@@ -702,7 +727,7 @@ export default function Features() {
 }
 ```
 
-### 5.5. `src/components/Testimonials.tsx`
+### 6.5. `src/components/Testimonials.tsx`
 
 A section to display client testimonials in a card-based grid layout.
 
@@ -746,7 +771,7 @@ export default function Testimonials() {
 }
 ```
 
-### 5.6. `src/components/Newsletter.tsx`
+### 6.6. `src/components/Newsletter.tsx`
 
 A newsletter signup form section.
 
@@ -784,11 +809,11 @@ export default function Newsletter() {
 
 ---
 
-## 6. Pages
+## 7. Pages
 
 This section details all pages in the `src/app` directory.
 
-### 6.1. Home Page: `src/app/page.tsx`
+### 7.1. Home Page: `src/app/page.tsx`
 
 The main landing page, which assembles the `Hero`, `Features`, `Testimonials`, and `Newsletter` components.
 
@@ -810,7 +835,7 @@ export default function Home() {
 }
 ```
 
-### 6.2. About Page: `src/app/about/page.tsx`
+### 7.2. About Page: `src/app/about/page.tsx`
 
 Provides information about the company, its team, and its history.
 
@@ -881,7 +906,7 @@ export default function AboutPage() {
 }
 ```
 
-### 6.3. Services Page: `src/app/services/page.tsx`
+### 7.3. Services Page: `src/app/services/page.tsx`
 
 Details the AI services offered by the company.
 
@@ -940,7 +965,7 @@ export default function ServicesPage() {
 }
 ```
 
-### 6.4. Case Studies Page: `src/app/case-studies/page.tsx`
+### 7.4. Case Studies Page: `src/app/case-studies/page.tsx`
 
 Showcases examples of the company's work.
 
@@ -1020,7 +1045,7 @@ export default function CaseStudiesPage() {
 }
 ```
 
-### 6.5. Blog Index Page: `src/app/blog/page.tsx`
+### 7.5. Blog Index Page: `src/app/blog/page.tsx`
 
 A list of all blog posts.
 
@@ -1081,7 +1106,7 @@ export default function BlogPage() {
 }
 ```
 
-### 6.6. Dynamic Blog Post Page: `src/app/blog/[slug]/page.tsx`
+### 7.6. Dynamic Blog Post Page: `src/app/blog/[slug]/page.tsx`
 
 A template for displaying individual blog posts based on a dynamic slug.
 
@@ -1116,7 +1141,7 @@ export default function BlogPostPage({
 }
 ```
 
-### 6.7. Contact Page: `src/app/contact/page.tsx`
+### 7.7. Contact Page: `src/app/contact/page.tsx`
 
 A page with a contact form.
 
@@ -1206,9 +1231,9 @@ export default function ContactPage() {
 
 ---
 
-## 7. Static Assets
+## 8. Static Assets
 
-### 7.1. `public/placeholder.svg`
+### 8.1. `public/placeholder.svg`
 
 A generic placeholder image used for team photos and case study images.
 
@@ -1219,6 +1244,3 @@ A generic placeholder image used for team photos and case study images.
     Placeholder
   </text>
 </svg>
-```
-
-</rewritten_file> 
