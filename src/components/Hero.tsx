@@ -24,7 +24,7 @@ export default function Hero() {
   const options: ISourceOptions = useMemo(
     () => ({
       fullScreen: {
-        enable: false 
+        enable: false,
       },
       background: {
         color: {
@@ -77,6 +77,7 @@ export default function Hero() {
         number: {
           density: {
             enable: true,
+            area: 800
           },
           value: 80,
         },
