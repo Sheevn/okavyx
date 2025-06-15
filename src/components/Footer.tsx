@@ -24,8 +24,8 @@ export default function Footer() {
         </div>
         <div className="grid gap-1">
           <h3 className="font-semibold">Social</h3>
-          <Link href="#">
-            Twitter
+          <Link href="/x-posts">
+            X / Twitter
           </Link>
           <Link href="#">
             LinkedIn
